@@ -1,0 +1,31 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav mode="over" disableClose="false">
+    <mat-nav-list>
+      <a routerLink="./listado" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon matListItemIcon>label</mat-icon>
+        <span>Listado de héroes</span></a
+      >
+      <a routerLink="./agregar" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon matListItemIcon>add</mat-icon>
+        <span>Añadir héroes</span></a
+      >
+      <a routerLink="./buscar" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon matListItemIcon>search</mat-icon>
+        <span>Buscar héroes</span></a
+      >
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-toolbar>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div class="spacer"></div>
+    <button mat-icon-button matTooltip="Basic" >
+      <mat-icon>logout</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>
