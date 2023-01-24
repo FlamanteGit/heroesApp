@@ -1,1 +1,80 @@
-<p>agregar works!</p>
+<h1 *ngIf="!heroe.id; else elseBlock">
+  Nuevo Héroe <small>{{ heroe.superhero }}</small>
+</h1>
+
+<ng-template #elseBlock>
+ <h1>
+  Editando Héroe <small>{{ heroe.superhero }}</small>
+ </h1>
+</ng-template>
+
+
+<div class="row">
+  <div class="col-sm-8">
+    <div class="row">
+      <div class="col-lg-6">
+        <mat-form-field>
+          <mat-label>Superheroe</mat-label>
+          <input matInput type="text" [(ngModel)]="heroe.superhero" required />
+        </mat-form-field>
+      </div>
+      <div class="col-lg-6">
+        <mat-form-field>
+          <mat-label>Alter ego</mat-label>
+          <input matInput type="text" [(ngModel)]="heroe.alter_ego" required />
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field>
+          <mat-label>Primera aparición</mat-label>
+          <input
+            matInput
+            type="text"
+            [(ngModel)]="heroe.first_appearance"
+            required
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="col-12">
+        <mat-form-field>
+          <mat-label>Personajes</mat-label>
+          <input matInput type="text" [(ngModel)]="heroe.characters" required />
+        </mat-form-field>
+      </div>
+
+      <div class="col-12">
+        <mat-form-field>
+          <mat-label>Creador</mat-label>
+          <mat-select [(ngModel)]="heroe.publisher"
+            ><mat-option
+              *ngFor="let publisher of publishers"
+              [value]="publisher"
+              >{{ publisher }}</mat-option
+            ></mat-select
+          >
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field>
+          <mat-label>Foto URL</mat-label>
+          <input matInput type="url" [(ngModel)]="heroe.alt_img" required />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6" *ngIf="heroe.id">
+        <button mat-raised-button (click)="borrar()" color="warn">Eliminar <mat-icon>delete</mat-icon></button>
+      </div>
+
+      <div class="col-lg-6">
+        <button mat-raised-button (click)="guardar()">Guardar <mat-icon>done</mat-icon></button>
+      </div>
+
+    </div>
+    <br>
+  </div>
+  <div class="col-sm">
+    <img [src]="heroe | imagen" alt="" />
+  </div>
+</div>

@@ -1,1 +1,10 @@
-<p>listado works!</p>
+<h1>Listado de héroes</h1>
+<mat-divider></mat-divider>
+<br />
+
+<div class="row">
+  <div class="col col-md-6 col-lg-4 col-xl-3" *ngFor="let heroe of heroes">
+    <app-heroe-tarjeta [heroe]="heroe"></app-heroe-tarjeta>
+  </div>
+</div>
+

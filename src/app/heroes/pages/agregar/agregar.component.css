@@ -1,0 +1,14 @@
+mat-form-field {
+    width: 100%;
+}
+
+img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+button {
+    justify-self: right;
+    width: 100%;
+    margin: 5px;
+}
